@@ -92,6 +92,13 @@
             color: rgba(16,16,96);
         }
 
+        .error{
+            background: red;
+            columns: #FFF;
+            font-size: 14px;
+            margin: 4px 0;
+            padding: 4px;
+        }
 
     </style>
   <div class="container-form">
@@ -101,6 +108,8 @@
         <div class="group-input">
             <label for="email">E-mail</label>
             <input type="text" id="email" placeholder="E-mail Cadastrado">
+            <div class="error">E-mail não preenchido!</div>
+            <div class="error">E-mail inválido!</div>
         </div>
 
         <div class="group-input">
