@@ -4,8 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Área de login</title>
-    <link rel="stylesheet" href="xxxxx"> </head>
+    <link rel="stylesheet" href="">
+</head>
 <body>
-  
+
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+            font-size: 1rem;
+        }
+
+        .container-form{
+            border:2px solid #Ccc;
+            border-radius: 5px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,.2);
+            padding: 1em;
+        }
+        
+        .group-input{
+            padding: 1rem 0;
+        }
+
+        label{
+            display: block;
+        }
+
+        .container-buttons{
+            display: flex;
+            flex-direction: column;
+            padding-top: 1rem;
+        }
+
+        button{
+            border: 0;
+            border-radius: 5px;
+            display: block;
+            margin: 10px;
+            width: 100%;
+        }
+
+
+    </style>
+  <div class="container-form">
+    <h1>Área de Login</h1>
+    <form action="">
+
+        <div class="group-input">
+            <label for="email">E-mail</label>
+            <input type="text" id="email" placeholder="E-mail Cadastrado">
+        </div>
+
+        <div class="group-input">
+            <label for="passwordx">Senha</label>
+            <input type="password" id="passwordx" placeholder="Senha">
+        </div>
+
+        <div class="container-buttons">
+            <button type="button" class="clear">Recuperar senha</button>
+            <button type="button" class="solid">Acessar</button>
+            <button type="button" class="outline">Cadastrar-se</button>
+        </div>
+
+    </form>
+  </div>
 </body>
 </html>
