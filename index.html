@@ -122,12 +122,28 @@
         </div>
 
         <div class="container-buttons">
-            <button type="button" class="clear">Recuperar senha</button>
+            <button type="button" class="clear" id="btn-recover">Recuperar senha</button>
             <button type="button" class="solid">Acessar</button>
             <button type="button" class="outline">Cadastrar-se</button>
         </div>
 
     </form>
   </div>
+
+  <script>
+
+    const btnRecover = document.getElementById('btn-recover');
+
+    btnRecover.addEventListener('click', validarFields, false);
+
+    function validarFields(e){
+        e.preventDefault();
+        //pegando os campos
+        const email = document.getElementById('email').value;
+        const passwordx = document.getElementById('passwordx').value;
+
+        alert("Usuário interagindo")
+    }
+  </script>
 </body>
 </html>
