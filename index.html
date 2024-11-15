@@ -1,149 +1,241 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Área de login</title>
     <link rel="stylesheet" href="">
-</head>
-<body>
+
 
     <style>
-        *{
-            box-sizing: border-box;
-            padding: 0;
-            margin: 0;
-            font-family: sans-serif;
-            font-size: 1rem;
-        }
+             
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 1rem;
+}
 
-        .container-form{
-            border:1px solid #fff;
-            border-radius: 5px;
-            box-shadow: 5px 5px 15px rgba(0,0,0,.2);
-            color: rgb(16,16,96);
-            padding: 1em;
-            max-width: 330px;
-            margin: 2em auto 0 auto;
-        }
-        
-        .container-form h1{
-            font-size: 36px;
-            padding:0;
-            text-align: center;
-            /* border: 1px solid red; */
-        }
-        .group-input{
-            padding: .5rem 0;
-            /* border: 2px solid red; */
-        }
+:root{
+    --color-primary: #00993e;
+    --color-alerta: rgba(255, 0, 0, 0.877);
+}
 
-        .group-input input{
-            border: 1px solid rgba(16,16,96,.2);
-            border-radius: 5px;
-            height: 37px;
-            outline: none;
-            padding: 0 6px;
-            width: 100%;
-        }
+body{
+    align-items: center;
+    background: #00993e;
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    padding: 0 .6rem;
+}
 
-        .group-input input::placeholder{
-            color: #d1caca90;
-            font-size: 14px;
-        }
+.container-form{
+    background: #f1e2e2dd;
+    border:1px solid #fff;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,.2);
+    color: var(--color-primary);
+    padding: 1em;
+    width: 330px;
+    margin: 0 auto;
+}
 
-        label{
-            display: block;
-            font-size: 14px;
-            padding: 0 0 4px 0;
-        }
+.container-form h1{
+    font-size: 36px;
+    padding:.3em 0 1.1rem 0;
+    text-align: center;
+    /* border: 1px solid red; */
+}
+.group-input{
+    padding: .5rem 0;
+    /* border: 2px solid red; */
+}
 
-        .container-buttons{
-            display: flex;
-            flex-direction: column;
-            padding-top: .5rem;
-        }
+.group-input input{
+    border: 1px solid rgba(16,16,96,.2);
+    border-radius: 5px;
+    height: 37px;
+    outline: none;
+    padding: 0 6px;
+    width: 100%;
+}
 
-        button{
-            cursor: pointer;
-            border: 0;
-            border-radius: 5px;
-            display: block;
-            height: 35px;
-            margin: 6px 0;
-            width: 100%;
-        }
+.group-input input::placeholder{
+    color: #d1caca90;
+    font-size: 14px;
+}
 
-        button:active{
-            opacity: .8;
-        }
+label{
+    display: block;
+    font-size: 14px;
+    padding: 0 0 4px 0;
+}
 
-        button.clear{
-            background: transparent;
-            color: rgb(16,16,96);
-        }
+.container-buttons{
+    display: flex;
+    flex-direction: column;
+    padding-top: .5rem;
+}
 
-        button.solid{
-            background:rgba(16,16,96);
-            color: #FFF;
-        }
+button{
+    cursor: pointer;
+    border: 0;
+    border-radius: 5px;
+    display: block;
+    height: 35px;
+    margin: 6px 0;
+    width: 100%;
+}
 
-        button.outline{
-            background: transparent;
-            border: 1.2px solid rgba(16,16,96);
-            color: rgba(16,16,96);
-        }
+button:active{
+    opacity: .8;
+}
 
-        .error{
-            background: rgba(255, 0, 0, 0.877);
-            color: #FFF; 
-            display: none;
-            font-size: 13px;
-            margin: 4px 0;
-            padding: 4px;
-        }
+button.clear{
+    background: transparent;
+    color: var(--color-primary);
+}
 
+button.solid{
+    background: var(--color-primary);
+    color: #FFF;
+}
+
+button.outline{
+    background: transparent;
+    border: 1.2px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+button.hide{
+    display: none;
+}
+
+.error{
+    background: var(--color-alerta);
+    color: #FFF; 
+    display: none;
+    font-size: 13px;
+    margin: 4px 0;
+    padding: 4px;
+} 
     </style>
-  <div class="container-form">
-    <h1>Área de Login</h1>
-    <form action="">
+    
+</head>
 
-        <div class="group-input">
-            <label for="email">E-mail</label>
-            <input type="text" id="email" placeholder="E-mail Cadastrado">
-            <div class="error">E-mail não preenchido!</div>
-            <div class="error">E-mail inválido!</div>
-        </div>
+<body> 
+    <div class="container-form">
+        <h1>Área de Login</h1>
+        <form action="">
 
-        <div class="group-input">
-            <label for="passwordx">Senha</label>
-            <input type="password" id="passwordx" placeholder="Senha">
-            <div class="error">Senha é obrigatória!</div>
-        </div>
+            <div class="group-input">
+                <label for="email">E-mail</label>
+                <input type="text" id="email" placeholder="E-mail Cadastrado" onblur="validateEmail()">
+                <div class="error" id="msg-error-email-empty">E-mail não preenchido!</div>
+                <div class="error" id="msg-error-email-invalid">E-mail inválido!</div>
+            </div>
 
-        <div class="container-buttons">
-            <button type="button" class="clear" id="btn-recover">Recuperar senha</button>
-            <button type="button" class="solid">Acessar</button>
-            <button type="button" class="outline">Cadastrar-se</button>
-        </div>
+            <div class="group-input">
+                <label for="passwordx">Senha</label>
+                <input type="password" id="passwordx" placeholder="Senha" onblur="validateSenha()">
+                <div class="error" id="msg-error-password"> -Letras e números! </div>
+            </div>
 
-    </form>
-  </div>
+            <div class="container-buttons">
+                <button type="button" class="clear hide" id="hide-recover-password">Recuperar senha</button>
+                <button type="button" class="solid hide" id="hide-acessar">Acessar</button>
+                <button type="button" class="outline">Cadastrar-se</button>
+            </div>
 
-  <script>
+        </form>
+    </div>
+    <script>
 
-    const btnRecover = document.getElementById('btn-recover');
+        //VALIDAR CAMPO E-MAIL
+        function validateEmail() {
+            const email = document.getElementById('email').value;
+            const msgErrorEmailEmpty = document.getElementById('msg-error-email-empty');
+            const msgErrorEmailInvalid = document.getElementById('msg-error-email-invalid');
+            const hideRecoverPassword = document.getElementById('hide-recover-password');
 
-    btnRecover.addEventListener('click', validarFields, false);
+            if (email === '') {
+                msgErrorEmailEmpty.style.display = 'block';
+                hideRecoverPassword.style.display = 'none'; //oculta button recuperar senha
+            }
 
-    function validarFields(e){
-        e.preventDefault();
-        //pegando os campos
-        const email = document.getElementById('email').value;
-        const passwordx = document.getElementById('passwordx').value;
+            else if (!validarEmail(email)) {
+                msgErrorEmailInvalid.style.display = 'block';
+                hideRecoverPassword.style.display = 'none'; //oculta button recuperar senha
+            }
 
-        alert("Usuário interagindo")
-    }
-  </script>
+            else {
+                msgErrorEmailEmpty.style.display = 'none';
+                msgErrorEmailInvalid.style.display = 'none';
+                hideRecoverPassword.style.display = 'block'; //mostra button recuperar senha
+                isEmail = true;
+                loginOk();
+            }
+
+            //regex para email
+            function validarEmail(email) {
+                const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                return regex.test(email);
+            }
+        } //fim da validação do campos email
+
+
+        //VALIDAR CAMPO SENHA
+        function validateSenha() {
+            const passwordx = document.getElementById('passwordx').value;
+            const msgErrorPassword = document.getElementById('msg-error-password');
+            const hideAcessar = document.getElementById('hide-acessar');
+
+            if (passwordx === '') {
+                msgErrorPassword.style.display = 'block';
+                hideAcessar.style.display = 'none'; //oculta button acessar
+            }
+
+            else if (!validarSenha(passwordx)) {
+                msgErrorPassword.style.display = 'block';
+                hideAcessar.style.display = 'none'; //oculta button acessar
+            }
+
+            else {
+                msgErrorPassword.style.display = 'none';
+                hideAcessar.style.display = 'block'; //mostrar button acessar
+                isEmail = true;
+                loginOk();
+            }
+
+
+
+            //regex para senha
+            function validarSenha(passwordx) {
+                //tenha números, letras e caracteres especiais
+                const regexPassword = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9]{6,}$/;
+                return regexPassword.test(passwordx);
+            }
+        }
+
+
+        isEmail = false;
+        isPassword = false;
+
+
+        function loginOk() {
+            if (isEmail==true && isPassword==true) {
+                hideAcessar.style.display = 'block';
+            }
+            else{
+                hideAcessar.style.display = 'none';
+            }
+        }
+
+    </script>
 </body>
+
 </html>
